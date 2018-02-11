@@ -32,5 +32,10 @@ fun provideHttpClient() = OkHttpClient()
 fun provideWikiApi(client: OkHttpClient, requestBuilder: HttpUrl.Builder?) =
         WikiApi(client, requestBuilder)
 
+ @Provides
+@Singleton
+fun provideRequestBuilder(@Named(NAME_BASE_URL) baseUrl: String) =
+                HttpUrl.parse(baseUrl)?.newBuilder()
+
 
 }
