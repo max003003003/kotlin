@@ -60,10 +60,7 @@ class NetworkModule {
   fun provideRequestBuilder(@Named(NAME_BASE_URL) baseUrl: String) =
       HttpUrl.parse(baseUrl)?.newBuilder()
 
- @Provides
-@Singleton
-fun provideRequestBuilder(@Named(NAME_BASE_URL) baseUrl: String) =
-                HttpUrl.parse(baseUrl)?.newBuilder()
+
 
 
 }
