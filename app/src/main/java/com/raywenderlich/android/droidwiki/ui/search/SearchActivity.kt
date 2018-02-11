@@ -47,12 +47,13 @@ import javax.inject.Inject
 
 class SearchActivity : Activity(), EntryView {
 
-  @Inject
-  lateinit var presenter: EntryPresenter
+  @Inject lateinit var presenter: EntryPresenter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_search)
+
+    (application as WikiApplication).wikiComponent.inject(this)
 
     actionBar?.setHomeAsUpIndicator(R.drawable.ic_home)
     actionBar?.setDisplayHomeAsUpEnabled(true)

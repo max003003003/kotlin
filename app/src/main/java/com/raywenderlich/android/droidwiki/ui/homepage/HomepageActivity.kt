@@ -48,13 +48,14 @@ import javax.inject.Inject
 
 class HomepageActivity : Activity(), HomepageView {
 
-  @Inject
-  lateinit var presenter: HomepagePresenter
+  @Inject lateinit var presenter: HomepagePresenter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_homepage)
+
     (application as WikiApplication).wikiComponent.inject(this)
+
     presenter.setView(this)
     presenter.loadHomepage()
   }
